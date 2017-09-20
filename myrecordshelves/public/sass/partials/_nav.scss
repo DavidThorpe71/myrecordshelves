@@ -1,0 +1,19 @@
+.nav {
+	display: flex;
+	list-style: none;
+	justify-content: space-between;
+	&__section {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__item {
+		display: flex;
+		margin: 10px;
+	}
+	&__link {
+		border-bottom: 5px solid transparent;
+		&:hover, &--active {
+      		border-bottom-color: rgba(0,0,0,0.2);
+      	}
+	}
+}

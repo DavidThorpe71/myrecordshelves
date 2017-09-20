@@ -3,15 +3,18 @@ html {
 }
 
 body {
-  background: $purple;
   background:#efefef;
   &:before {
     content: '';
     display: block;
-    background: $grad;
+    background: silver;
     height: 10px;
     width: 100%;
   }
+}
+
+.content {
+  margin: 10px;
 }
 
 .inner {

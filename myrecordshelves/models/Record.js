@@ -24,6 +24,7 @@ const recordSchema = new mongoose.Schema({
 	tags: [String]
 });
 
+// This section sets the slug
 recordSchema.pre('save', function(next) {
 	if (!this.isModified('title')) {
 		next(); //skip it
@@ -31,7 +32,7 @@ recordSchema.pre('save', function(next) {
 	}
 	this.slug = slug(this.title);
 	next();
-	// TODO: update this to make more resillient so slugs are unique for matching titles
+	// TODO update this to make more resillient so slugs are unique for matching titles
 });
 
 module.exports = mongoose.model('Record', recordSchema);

@@ -1,7 +1,29 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title= `${title} | ${h.siteName}`
+		link(rel='stylesheet', href='/dist/style.css')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+	body
+		block header
+			header.top
+				nav.nav
+					.nav__section.nav__section--pages
+						li.nav__item
+							a.nav__link.nav__link--logo(href="/")
+								span Home
+								//- != h.icon('logo')
+						each item in h.menu
+							li.nav__item
+								a.nav__link(href=item.slug, class=(currentPath.startsWith(item.slug) ? 'nav__link--active' : ''))
+									//- != h.icon(item.icon)
+									span #{item.title}
+
+		block messages
+
+		.content
+			block content
+
+		block scripts
+			script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
+			script(src="/dist/App.bundle.js")

@@ -20,10 +20,9 @@ exports.icon = (name) => fs.readFileSync(`./public/images/icons/${name}.svg`);
 // Some details about the site
 exports.siteName = `Record Shelves`;
 
-// exports.menu = [
-//   { slug: '/stores', title: 'Stores', icon: 'store', },
-//   { slug: '/tags', title: 'Tags', icon: 'tag', },
-//   { slug: '/top', title: 'Top', icon: 'top', },
-//   { slug: '/add', title: 'Add', icon: 'add', },
-//   { slug: '/map', title: 'Map', icon: 'map', },
-// ];
+exports.menu = [
+  { slug: '/shelves', title: 'Shelves', icon: 'shelf', },
+  { slug: '/records', title: 'Records', icon: 'record', },
+  { slug: '/tags', title: 'Tags', icon: 'tag', },
+  { slug: '/add', title: 'Add', icon: 'add', },
+];
