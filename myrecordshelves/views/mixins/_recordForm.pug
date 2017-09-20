@@ -1,0 +1,15 @@
+mixin recordForm(record = {})
+	form(action="/add" method="POST" class="card")
+		label(for="artist") Artist Name
+		input(type="text" name="artist")
+		label(for="title") Record Title
+		input(type="text" name="title")
+		label(for="shelf") What shelf is this on?
+		input(type="number" name="shelf")
+		- const choices = ['12\"', '10\"', '7\"']
+		ul.tags
+			each choice in choices
+				.tag.tag__choice
+					input(type="checkbox" id=choice value="choice" name="tags")
+					label(for="choice") #{choice}
+		input(type="submit" value="Save" class="button")
