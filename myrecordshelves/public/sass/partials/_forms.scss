@@ -2,10 +2,24 @@ input, textarea {
   width:100%;
   padding:10px;
   border: 1px solid $grey;
-  &.input {
-    &--error {
+  & .input {
+    & --error {
       border-color: red;
     }
+  }
+}
+
+.other__options {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  & .shelf {
+    // display: flex;
+    // flex-wrap: nowrap;
+    margin-right: 1rem;
+  }
+  & .shelf, .format {
+    flex: 1;
   }
 }
 

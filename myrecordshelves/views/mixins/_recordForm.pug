@@ -4,12 +4,16 @@ mixin recordForm(record = {})
 		input(type="text" name="artist")
 		label(for="title") Record Title
 		input(type="text" name="title")
-		label(for="shelf") What shelf is this on?
-		input(type="number" name="shelf")
-		- const choices = ['12\"', '10\"', '7\"']
-		ul.tags
-			each choice in choices
-				.tag.tag__choice
-					input(type="checkbox" id=choice value="choice" name="tags")
-					label(for="choice") #{choice}
+		.other__options
+			.shelf
+				label(for="shelf") What shelf is this on?
+				input(type="number" name="shelf" min="1" max="8")
+			- const choices = ['12\"', '10\"', '7\"']
+			.format
+				label(for="format") Format
+				ul.tags
+					each choice in choices
+						.tag.tag__choice
+							input(type="radio" id=choice value="choice" name="tags")
+							label(for="choice") #{choice}
 		input(type="submit" value="Save" class="button")
