@@ -18,6 +18,6 @@ exports.createRecord = async (req, res) => {
 exports.getRecords = async (req, res) => {
 	// query database for list of all records
 	const records = await Record.find();
-	console.log(records);
+	// console.log(records);
 	res.render('records', { title: 'Records', records });
 }
