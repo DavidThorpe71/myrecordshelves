@@ -9,20 +9,6 @@ input, textarea {
   }
 }
 
-.other__options {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-  & .shelf {
-    // display: flex;
-    // flex-wrap: nowrap;
-    margin-right: 1rem;
-  }
-  & .shelf, .format {
-    flex: 1;
-  }
-}
-
 label {
   padding: 10px 0;
   display: block;

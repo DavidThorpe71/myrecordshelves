@@ -575,18 +575,6 @@ input, textarea {
   input .input \--error, textarea .input \--error {
     border-color: red; }
 
-.other__options {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-bottom: 2rem; }
-  .other__options .shelf {
-    margin-right: 1rem; }
-  .other__options .shelf, .other__options .format {
-    -ms-flex: 1;
-        flex: 1; }
-
 label {
   padding: 10px 0;
   display: block; }
@@ -645,6 +633,7 @@ label {
   font-size: 0; }
 
 .button {
+  margin-top: 20px;
   border: 0;
   background: #e6e6e6;
   color: #303030; }
