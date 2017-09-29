@@ -10,7 +10,14 @@ exports.addRecord = (req, res) => {
 };
 
 exports.createRecord = async (req, res) => {
-	const record = new Record(req.body);
-	await record.save();
-	res.redirect('/');
+	const record = await (new Record(req.body)).save();
+	req.flash('success', `Successfully created ${record.title} record`);
+	res.redirect(`/records/${record.slug}`);
+}
+
+exports.getRecords = async (req, res) => {
+	// query database for list of all records
+	const records = await Record.find();
+	console.log(records);
+	res.render('records', { title: 'Records', records });
 }

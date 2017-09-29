@@ -1,0 +1,10 @@
+extends layout
+
+include mixins/_recordCard
+
+block content
+	.inner
+		h2= title
+		.records
+			each record in records
+				+recordCard(record)

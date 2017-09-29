@@ -1,0 +1,11 @@
+mixin recordCard(record = {})
+	.record
+		.record__hero
+			.record__actions
+				button soon
+			img(src=`/uploads/${record.photo || 'record.jpg'}`)
+			p.artist #{record.artist}
+			p.title
+				a(href=`/records/${record.slug}`) #{record.title}
+			p.shelf #{record.shelf}
+			p.format #{record.tags[0]}
