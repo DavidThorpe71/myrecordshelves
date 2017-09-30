@@ -21,6 +21,11 @@ const recordSchema = new mongoose.Schema({
 	format: {
 		type: [],
 		required: 'Please select a format!'
+	},
+	cover: String,
+	created: {
+		type: Date,
+		default: Date.now
 	}
 });
 

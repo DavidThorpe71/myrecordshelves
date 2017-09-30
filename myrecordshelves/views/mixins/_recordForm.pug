@@ -1,16 +1,23 @@
 mixin recordForm(record = {})
-	form(action="/add" method="POST" class="card")
+	form(action=`/add/${record._id || ''}` method="POST" class="card" enctype="multipart/form-data")
+		pre= h.dump(record)
 		label(for="artist") Artist Name
-		input(type="text" name="artist")
+		input(type="text" name="artist" value=record.artist)
 		label(for="title") Record Title
-		input(type="text" name="title")
+		input(type="text" name="title" value=record.title)
+		//- image upload
+		label(for="cover") Cover
+			input(type="file" name="cover" id="cover" accept="image/gif, image/png, image/jpeg")
+			if record.cover
+				img(src=`/uploads/${record.cover}`, alt=record.title width=200)
 		label(for="shelf") What shelf is this on?
-		input(type="number" name="shelf" min="1" max="8")
+		input(type="number" name="shelf" min="1" max="8" value=record.shelf)
 		- const choices = ['12\"', '10\"', '7\"', 'DBLP', 'Cassette', 'Book', 'Other']
+		- const formats = record.format || []
 			label(for="format") Format
 			ul.formats
 				each choice in choices
 					.format.format__choice
-						input(type="radio" id="choice" value=choice name="format")
+						input(type="radio" id="choice" value=choice name="format" checked=(formats.includes(choice)))
 						label(for="choice") #{choice}
 		input(type="submit" value="Save" class="button")

@@ -2,8 +2,10 @@ mixin recordCard(record = {})
 	.record
 		.record__hero
 			.record__actions
-				button soon
-			img(src=`/uploads/${record.photo || 'record.jpg'}`)
+				.record__action.record__action--edit
+					a(href=`/records/${record._id}/edit`)
+						!= h.icon('pencil')
+			img(src=`/uploads/${record.cover || 'record.jpg'}`)
 			p.artist Artist: #{record.artist}
 			p.title Title: 
 				a(href=`/records/${record.slug}`) #{record.title}

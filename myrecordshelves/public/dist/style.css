@@ -457,9 +457,31 @@ a {
 p a {
   border-bottom: 2px solid #FFC40E; }
 
-p {
-  line-height: 2;
-  font-size: 1.6rem; }
+.title {
+  word-wrap: break-word;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  z-index: 2; }
+  .title--long {
+    font-size: 30px; }
+  .title:before {
+    content: '';
+    width: 50px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    -ms-transform: skew(-5deg);
+        transform: skew(-5deg); }
+
+.title--single {
+  max-width: 600px;
+  margin-top: -9rem;
+  font-size: 10rem;
+  text-align: center; }
 
 @keyframes slideIn {
   0% {
@@ -639,9 +661,6 @@ pre.error {
 .record__actions {
   position: relative;
   z-index: 2;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.2);
-  margin-bottom: 50px;
   padding-top: 10px;
   padding-bottom: 20px;
   display: -ms-flexbox;
@@ -651,5 +670,26 @@ pre.error {
       align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around; }
+
+.record__action {
+  font-size: 10px; }
+  .record__action svg {
+    width: 25px;
+    fill: black; }
+  .record__action--edit a {
+    border-bottom: 0; }
+
+.record__hero {
+  position: relative;
+  padding: 0 10px 0 10px; }
+  .record__hero:before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1; }
 
 /*# sourceMappingURL=style.css.map*/
