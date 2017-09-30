@@ -1,6 +1,5 @@
 mixin recordForm(record = {})
 	form(action=`/add/${record._id || ''}` method="POST" class="card" enctype="multipart/form-data")
-		pre= h.dump(record)
 		label(for="artist") Artist Name
 		input(type="text" name="artist" value=record.artist)
 		label(for="title") Record Title

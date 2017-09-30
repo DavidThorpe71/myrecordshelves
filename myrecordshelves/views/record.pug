@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	.single
+		.single__hero
+			img.single__image(src=`/uploads/${record.cover || 'record.jpg'}`)
+			h2.title.title--single
+				a(href=`/records/${record.slug}`) #{record.title}
+
+	.single__details.inner
+		p.artist Artist: #{record.artist}
+		a.shelf(href=`/shelves/${record.shelf}`) 
+			span.shelf__text Shelf: #{record.shelf}
+		p.format Format: #{record.format}
+

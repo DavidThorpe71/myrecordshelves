@@ -23,6 +23,6 @@ exports.siteName = `Record Shelves`;
 exports.menu = [
   { slug: '/shelves', title: 'Shelves', icon: 'shelf', },
   { slug: '/records', title: 'Records', icon: 'record', },
-  { slug: '/tags', title: 'Tags', icon: 'tag', },
+  // { slug: '/formats', title: 'Formats', icon: 'format', },
   { slug: '/add', title: 'Add', icon: 'add', },
 ];

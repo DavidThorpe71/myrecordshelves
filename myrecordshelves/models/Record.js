@@ -30,14 +30,26 @@ const recordSchema = new mongoose.Schema({
 });
 
 // This section sets the slug
-recordSchema.pre('save', function(next) {
+recordSchema.pre('save', async function(next) {
 	if (!this.isModified('title')) {
 		next(); //skip it
 		return; // stops this function from running
 	}
 	this.slug = slug(this.title);
+	// find other records that have a slug of title, title-1, title-2 etc
+	const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, 'i');
+	const recordsWithSlug = await this.constructor.find({ slug: slugRegEx });
+	if(recordsWithSlug.length) {
+		this.slug = `${this.slug}-${recordsWithSlug.length + 1}`;
+	}
 	next();
-	// TODO update this to make more resillient so slugs are unique for matching titles
 });
+
+recordSchema.statics.getShelfList = function() {
+	return this.aggregate([
+		{ $group: { _id: '$shelf', count: { $sum: 1 } }},
+		{ $sort: { count: 1 }}
+	]);
+}
 
 module.exports = mongoose.model('Record', recordSchema);

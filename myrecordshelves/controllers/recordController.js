@@ -53,7 +53,7 @@ exports.getRecords = async (req, res) => {
 	// query database for list of all records
 	const records = await Record.find();
 	res.render('records', { title: 'Records', records });
-}
+};
 
 exports.editRecord = async (req, res) => {
 	//1. find record given the id
@@ -62,7 +62,7 @@ exports.editRecord = async (req, res) => {
 	//TODO
 	//3. render out the edit form so user can update record
 	res.render('editRecord', { title: `Edit ${record.title}`, record });
-}
+};
 
 exports.updateRecord = async (req, res) => {
 	//1. find and update the store
@@ -72,4 +72,16 @@ exports.updateRecord = async (req, res) => {
 	//2. redirect to record and tell them it worked
 	req.flash('success', `Successfully updated <strong>${record.title}</strong>. <a href="/records/${record.slug}">View Record</a>`);
 	res.redirect(`/records/${record._id}/edit`);
-}
+};
+
+exports.getRecordBySlug = async (req, res, next) => {
+	const record = await Record.findOne({ slug: req.params.slug });
+	if(!record) return next();
+	res.render('record', { record, title: record.title })
+};
+
+exports.getRecordsByShelf = async (req, res) => {
+	const shelves = await Record.getShelfList();
+	const shelf = req.params.shelf;
+	res.render('shelves', { shelves, title: 'Shelves', shelf });
+};
