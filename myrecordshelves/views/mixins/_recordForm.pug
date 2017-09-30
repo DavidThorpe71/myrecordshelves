@@ -6,11 +6,11 @@ mixin recordForm(record = {})
 		input(type="text" name="title")
 		label(for="shelf") What shelf is this on?
 		input(type="number" name="shelf" min="1" max="8")
-		- const choices = ['12\"', '10\"', '7\"']
+		- const choices = ['12\"', '10\"', '7\"', 'DBLP', 'Cassette', 'Book', 'Other']
 			label(for="format") Format
-			ul.tags
+			ul.formats
 				each choice in choices
-					.tag.tag__choice
-						input(type="radio" id="choice" value=choice name="tags")
+					.format.format__choice
+						input(type="radio" id="choice" value=choice name="format")
 						label(for="choice") #{choice}
 		input(type="submit" value="Save" class="button")

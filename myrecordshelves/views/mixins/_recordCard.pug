@@ -4,8 +4,8 @@ mixin recordCard(record = {})
 			.record__actions
 				button soon
 			img(src=`/uploads/${record.photo || 'record.jpg'}`)
-			p.artist #{record.artist}
-			p.title
+			p.artist Artist: #{record.artist}
+			p.title Title: 
 				a(href=`/records/${record.slug}`) #{record.title}
-			p.shelf #{record.shelf}
-			p.format #{record.tags[0]}
+			p.shelf Shelf: #{record.shelf}
+			p.format Format: #{record.format[0]}

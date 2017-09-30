@@ -14,14 +14,14 @@ const recordSchema = new mongoose.Schema({
 		required: 'Please enter the record\'s name!'
 	},
 	shelf: {
-		type: Number
+		type: Number,
+		required: 'Please enter the current shelf the record is on!'
 	},
 	slug: String,
-	description: {
-		type: String,
-		trim: true
-	},
-	tags: [String]
+	format: {
+		type: [],
+		required: 'Please select a format!'
+	}
 });
 
 // This section sets the slug

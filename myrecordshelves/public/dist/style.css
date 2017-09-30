@@ -554,41 +554,33 @@ label {
     margin-bottom: 2rem;
     border-bottom: 1px solid #e6e6e6; }
 
-.tags {
+.formats {
   margin: 0;
   padding: 0;
   list-style: none;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap; }
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
 
-.tag {
-  display: block;
-  margin-right: 1rem; }
-  .tag:last-child {
-    margin-right: 0; }
-  .tag__choice {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-        justify-content: center;
-    -ms-flex-align: center;
-        align-items: center;
-    background: #e6e6e6;
-    -ms-flex: 1;
-        flex: 1; }
-    .tag__choice input {
-      width: auto;
-      right: -1.5rem;
-      margin-right: -1rem;
-      position: relative;
-      z-index: 2; }
-      .tag__choice input + label {
-        background: #e6e6e6;
-        padding: 1rem 1rem 1rem 4rem; }
-      .tag__choice input:checked + label {
-        background: silver; }
+.format__choice {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center; }
+  .format__choice input {
+    width: auto;
+    right: -1.5rem;
+    margin-right: -1rem;
+    position: relative;
+    z-index: 2; }
+    .format__choice input + label {
+      background: #e6e6e6;
+      padding: 1rem 1rem 1rem 4rem; }
+    .format__choice input:checked + label {
+      background: silver; }
 
 .hide {
   text-indent: -999999px;
