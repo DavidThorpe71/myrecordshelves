@@ -8,7 +8,10 @@ const { catchErrors } =require('../handlers/errorHandlers');
 /* GET home page. */
 router.get('/', catchErrors(recordController.getRecords));
 router.get('/records', catchErrors(recordController.getRecords));
-router.get('/add', recordController.addRecord);
+router.get('/add', 
+	authController.isLoggedIn,
+	recordController.addRecord
+);
 
 router.post('/add', 
 	recordController.upload,
@@ -44,5 +47,12 @@ router.post('/register',
 );
 
 router.get('/logout', authController.logout);
+
+router.get('/account', 
+	authController.isLoggedIn,
+	userController.account
+);
+router.post('/account', catchErrors(userController.updateAccount));
+
 
 module.exports = router;
