@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const recordController = require('../controllers/recordController');
+const userController = require('../controllers/userController');
+const authController = require('../controllers/authController');
 const { catchErrors } =require('../handlers/errorHandlers');
 
 /* GET home page. */
@@ -26,5 +28,21 @@ router.get('/records/:slug', catchErrors(recordController.getRecordBySlug));
 
 router.get('/shelves', catchErrors(recordController.getRecordsByShelf));
 router.get('/shelves/:shelf', catchErrors(recordController.getRecordsByShelf));
+
+//Admin routes below here
+router.get('/login', userController.loginForm);
+router.post('/login', authController.login);
+router.get('/register', userController.registerForm);
+
+// 1. Validate Registration data
+// 2. Register the user
+// 3. We need to log them in
+router.post('/register', 
+	userController.validateRegister,
+	userController.register,
+	authController.login
+);
+
+router.get('/logout', authController.logout);
 
 module.exports = router;

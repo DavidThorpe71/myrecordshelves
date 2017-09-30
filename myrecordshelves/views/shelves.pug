@@ -1,11 +1,16 @@
 extends layout
 
+include mixins/_recordCard
+
 block content
 	.inner
 		h2 #{shelf || 'Shelves'}
-		ul.shelves
+		.shelves
 			each s in shelves
-				li.shelf
+				.shelf
 					a.shelf__link(href=`/shelves/${s._id}`, class=(s._id ===shelf ? 'shelf_link--active' : ''))
 						span.shelf_text Shelf #{s._id} - 
 						span.shelf_count= s.count
+		.records
+			each record in records
+				+recordCard(record)

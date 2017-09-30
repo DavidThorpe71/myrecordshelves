@@ -81,7 +81,11 @@ exports.getRecordBySlug = async (req, res, next) => {
 };
 
 exports.getRecordsByShelf = async (req, res) => {
-	const shelves = await Record.getShelfList();
 	const shelf = req.params.shelf;
-	res.render('shelves', { shelves, title: 'Shelves', shelf });
+	const shelfQuery = shelf || { $exists: true };
+	const shelvesPromise = Record.getShelfList();
+	const recordsPromise = Record.find({ shelf: shelfQuery });
+	const [shelves, records] = await Promise.all([shelvesPromise, recordsPromise]);
+
+	res.render('shelves', { shelves, title: 'Shelves', shelf, records });
 };
