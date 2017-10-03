@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	pre= h.dump(record)
 	.single
 		.single__hero
 			img.single__image(src=`/uploads/${record.cover || 'record.jpg'}`)

@@ -1,9 +1,9 @@
 mixin recordForm(record = {})
 	form(action=`/add/${record._id || ''}` method="POST" class="card" enctype="multipart/form-data")
 		label(for="artist") Artist Name
-		input(type="text" name="artist" value=record.artist)
+		input(type="text" id="artist" name="artist" value=record.artist)
 		label(for="title") Record Title
-		input(type="text" name="title" value=record.title)
+		input(type="text" id="title" name="title" value=record.title)
 		//- image upload
 		label(for="cover") Cover
 			input(type="file" name="cover" id="cover" accept="image/gif, image/png, image/jpeg")

@@ -44,6 +44,7 @@ exports.resize = async (req, res, next) => {
 };
 
 exports.createRecord = async (req, res) => {
+	req.body.author = req.user._id;
 	const record = await (new Record(req.body)).save();
 	req.flash('success', `Successfully created ${record.title} record`);
 	res.redirect(`/records/${record.slug}`);
@@ -55,11 +56,17 @@ exports.getRecords = async (req, res) => {
 	res.render('records', { title: 'Records', records });
 };
 
+const confirmOwner = (record, user) => {
+	if (!record.author.equals(user._id)) {
+		throw Error('You must own a record in order to edit it');
+	}
+}
+
 exports.editRecord = async (req, res) => {
 	//1. find record given the id
 	const record = await Record.findOne({ _id: req.params.id });
 	//2. confirm the user is the owner of the store
-	//TODO
+	confirmOwner(record, req.user);
 	//3. render out the edit form so user can update record
 	res.render('editRecord', { title: `Edit ${record.title}`, record });
 };
