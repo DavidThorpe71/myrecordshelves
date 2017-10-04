@@ -1,0 +1,10 @@
+mixin pagination(page, pages, count)
+	.pagination
+		.pagination_prev
+			if page > 1
+				a(href=`/records/page/${page - 1}`) Prev
+		.pagination__text
+			p page #{page} of #{pages} - #{count} total results
+		.pagonation__next
+			if page < pages
+				a(href=`/records/page/${parseFloat(page) + 1}`) Next

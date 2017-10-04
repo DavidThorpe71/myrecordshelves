@@ -51,8 +51,14 @@ exports.createRecord = async (req, res) => {
 };
 
 exports.getRecords = async (req, res) => {
+	const page = req.params.page || 1;
+	const limit = 8;
+	const skip = (page * limit) - limit;
 	// query database for list of all records
-	const records = await Record.find();
+	const records = await Record
+		.find()
+		.skip(skip)
+		.limit(limit)
 	res.render('records', { title: 'Records', records });
 };
 
