@@ -24,5 +24,5 @@ exports.menu = [
   { slug: '/shelves', title: 'Shelves', icon: 'shelf', },
   { slug: '/records', title: 'Records', icon: 'record', },
   // { slug: '/formats', title: 'Formats', icon: 'format', },
-  { slug: '/add', title: 'Add', icon: 'add', },
+  // { slug: '/add', title: 'Add', icon: 'add', },
 ];
