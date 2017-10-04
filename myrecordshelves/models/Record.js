@@ -34,6 +34,12 @@ const recordSchema = new mongoose.Schema({
 	}
 });
 
+// Define our indexes
+recordSchema.index({
+	artist: 'text',
+	title: 'text'
+})
+
 // This section sets the slug
 recordSchema.pre('save', async function(next) {
 	if (!this.isModified('title')) {

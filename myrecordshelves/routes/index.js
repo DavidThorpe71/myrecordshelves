@@ -35,6 +35,7 @@ router.get('/shelves/:shelf', catchErrors(recordController.getRecordsByShelf));
 //Admin routes below here
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
+//TODO work out where to position the register page to stop unknown people registering
 router.get('/register', userController.registerForm);
 
 // 1. Validate Registration data
@@ -59,5 +60,11 @@ router.post('/account/reset/:token',
 	authController.confirmedPasswords,
 	catchErrors(authController.update)
 );
+
+/*
+APIs
+*/
+
+router.get('/api/search', catchErrors(recordController.searchRecords));
 
 module.exports = router;

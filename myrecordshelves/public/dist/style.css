@@ -750,4 +750,23 @@ pre.error {
     .single__location {
       margin-right: 0; } }
 
+.search {
+  position: relative;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex; }
+  .search__results {
+    background: white;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    box-shadow: 0 0 2px black;
+    z-index: 5; }
+  .search__result {
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid grey; }
+    .search__result--active {
+      background: #e6e6e6; }
+
 /*# sourceMappingURL=style.css.map*/

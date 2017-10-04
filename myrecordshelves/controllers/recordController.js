@@ -96,3 +96,22 @@ exports.getRecordsByShelf = async (req, res) => {
 
 	res.render('shelves', { shelves, title: 'Shelves', shelf, records });
 };
+
+exports.searchRecords = async (req, res) => {
+	const records = await Record
+	// First find records that match
+	.find({
+		$text: {
+			$search: req.query.q
+		}
+	},{
+		score: { $meta: 'textScore' }
+	})
+	// Then sort them
+	.sort({
+		score: { $meta: 'textScore' }
+	})
+	// limit search results to 5
+	.limit(5);
+	res.json(records);
+};
