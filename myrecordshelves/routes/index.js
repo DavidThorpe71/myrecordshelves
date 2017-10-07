@@ -6,7 +6,7 @@ const authController = require('../controllers/authController');
 const { catchErrors } =require('../handlers/errorHandlers');
 
 /* GET home page. */
-router.get('/', catchErrors(recordController.getRecords));
+router.get('/', catchErrors(recordController.homePage));
 router.get('/records', catchErrors(recordController.getRecords));
 router.get('/records/page/:page', catchErrors(recordController.getRecords));
 router.get('/add', 

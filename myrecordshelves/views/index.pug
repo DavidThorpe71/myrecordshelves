@@ -1,5 +1,8 @@
 extends layout
 
+include mixins/_shelves
+
 block content
-  h1 #{title}
-  p Welcome to #{title}
+	.inner
+		h2= title
+		+shelves()

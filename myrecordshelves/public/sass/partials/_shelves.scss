@@ -1,0 +1,19 @@
+.cabinet {
+	margin: auto;
+	border: 2px solid black;
+	width: 200px;
+	padding: 2.5px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.box {
+	width: calc(50% - 5px);
+	height: 86.5px;
+	margin: 2.5px;
+	border: 2px solid black;
+}
+
+.box:hover {
+	background-color: lightgrey;
+}

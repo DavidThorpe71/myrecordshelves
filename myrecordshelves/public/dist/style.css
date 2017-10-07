@@ -542,9 +542,12 @@ p a {
     -ms-flex-pack: justify;
         justify-content: space-between; }
   .nav__item {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    width: 60px;
     display: -ms-flexbox;
     display: flex;
-    margin: 10px; }
+    margin: 10px 10px 0px 10px; }
   .nav__link {
     border-bottom: 5px solid transparent; }
     .nav__link:hover, .nav__link--active {
@@ -768,5 +771,24 @@ pre.error {
     border-bottom: 1px solid grey; }
     .search__result--active {
       background: #e6e6e6; }
+
+.cabinet {
+  margin: auto;
+  border: 2px solid black;
+  width: 200px;
+  padding: 2.5px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+
+.box {
+  width: calc(50% - 5px);
+  height: 86.5px;
+  margin: 2.5px;
+  border: 2px solid black; }
+
+.box:hover {
+  background-color: lightgrey; }
 
 /*# sourceMappingURL=style.css.map*/

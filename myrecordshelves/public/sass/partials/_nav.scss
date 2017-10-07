@@ -7,8 +7,10 @@
 		justify-content: space-between;
 	}
 	&__item {
+		align-self: flex-end;
+		width: 60px;
 		display: flex;
-		margin: 10px;
+		margin: 10px 10px 0px 10px;
 	}
 	&__link {
 		border-bottom: 5px solid transparent;

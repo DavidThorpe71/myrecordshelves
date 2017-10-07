@@ -17,8 +17,18 @@ const multerOptions = {
 };
 
 
-exports.homePage = (req, res) => {
-	res.render('index', { title: 'My Record Shelves'} );
+exports.homePage = async (req, res) => {
+	// query database for list of all records for search to work
+	// const records = await Record
+	// 	.find()
+	// 	// .skip(skip)
+	// 	// .limit(limit)
+	const shelf = req.params.shelf;
+	const shelfQuery = shelf || { $exists: true };
+	const shelvesPromise = Record.getShelfList();
+	const recordsPromise = Record.find({ shelf: shelfQuery });
+	const [shelves, records] = await Promise.all([shelvesPromise, recordsPromise]);
+	res.render('index', { title: 'My Record Shelves', records, shelves, shelf });
 };
 
 exports.addRecord = (req, res) => {
