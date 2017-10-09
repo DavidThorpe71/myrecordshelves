@@ -1,10 +1,5 @@
 mixin shelves()
 	.cabinet
-		.box.box__1
-		.box.box__2
-		.box.box__3
-		.box.box__4
-		.box.box__5
-		.box.box__6
-		.box.box__7
-		.box.box__8
+		each num in [1,2,3,4,5,6,7,8]
+			a.box.box__link(href=`/shelves/${num}`)
+				span.box__text #{num}

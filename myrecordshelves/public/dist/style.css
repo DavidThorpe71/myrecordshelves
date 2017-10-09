@@ -1,14 +1,9 @@
+@charset "UTF-8";
 html {
   font-size: 10px; }
 
 body {
   background: #efefef; }
-  body:before {
-    content: '';
-    display: block;
-    background: silver;
-    height: 10px;
-    width: 100%; }
 
 .content {
   margin: 10px; }
@@ -535,7 +530,8 @@ p a {
   display: flex;
   list-style: none;
   -ms-flex-pack: justify;
-      justify-content: space-between; }
+      justify-content: space-between;
+  border-bottom: 1px solid silver; }
   .nav__section {
     display: -ms-flexbox;
     display: flex;
@@ -549,9 +545,14 @@ p a {
     display: flex;
     margin: 10px 10px 0px 10px; }
   .nav__link {
+    text-align: center;
     border-bottom: 5px solid transparent; }
     .nav__link:hover, .nav__link--active {
       border-bottom-color: rgba(0, 0, 0, 0.2); }
+
+svg {
+  height: 40px;
+  width: 40px; }
 
 input, textarea {
   width: 100%;
@@ -576,6 +577,9 @@ label {
     padding-bottom: 2rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid #e6e6e6; }
+
+.search__input {
+  margin: 12px; }
 
 .formats {
   margin: 0;
@@ -787,8 +791,54 @@ pre.error {
   height: 86.5px;
   margin: 2.5px;
   border: 2px solid black; }
+  .box__link {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
+  .box:hover {
+    background-color: lightgrey; }
 
-.box:hover {
-  background-color: lightgrey; }
+.shelves {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+
+.shelf__link {
+  border-bottom: 5px solid transparent; }
+  .shelf__link:hover, .shelf__link--active {
+    border-bottom-color: rgba(0, 0, 0, 0.2); }
+
+.pagination {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  background: white;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05); }
+  .pagination__next {
+    -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+    padding: 1rem 3rem 1rem 1rem; }
+    .pagination__next a:after {
+      margin-left: 1rem;
+      content: '\2192'; }
+  .pagination__prev {
+    -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+    padding: 1rem 1rem 1rem 3rem; }
+    .pagination__prev a:before {
+      margin-right: 1rem;
+      content: '\2190'; }
+  .pagination__text {
+    -ms-flex: 3 0 auto;
+        flex: 3 0 auto;
+    padding: 1rem;
+    text-align: center; }
 
 /*# sourceMappingURL=style.css.map*/

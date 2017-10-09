@@ -4,13 +4,12 @@ include mixins/_recordCard
 
 block content
 	.inner
-		h2 #{shelf || 'Shelves'}
-		.shelves
-			each s in shelves
-				.shelf
-					a.shelf__link(href=`/shelves/${s._id}`, class=(s._id ===shelf ? 'shelf_link--active' : ''))
-						span.shelf_text Shelf #{s._id} - 
-						span.shelf_count= s.count
+		h2= title
+			.shelves
+				each num in [1,2,3,4,5,6,7,8]
+					.shelf
+						a.shelf__link(href=`/shelves/${num}`, class=(num ===shelf ? 'shelf_link--active' : ''))
+							h2 #{num}
 		.records
 			each record in records
 				+recordCard(record)

@@ -4,13 +4,6 @@ html {
 
 body {
   background:#efefef;
-  &:before {
-    content: '';
-    display: block;
-    background: silver;
-    height: 10px;
-    width: 100%;
-  }
 }
 
 .content {

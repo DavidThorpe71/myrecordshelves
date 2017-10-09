@@ -12,8 +12,27 @@
 	height: 86.5px;
 	margin: 2.5px;
 	border: 2px solid black;
+	&__link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&:hover {
+		background-color: lightgrey;
+	}
 }
 
-.box:hover {
-	background-color: lightgrey;
+.shelves {
+	display: flex;
+	justify-content: space-between;
+}
+.shelf {
+	// font-size: 3rem;
+	// margin: 5px;
+	&__link {
+		border-bottom: 5px solid transparent;
+		&:hover, &--active {
+      		border-bottom-color: rgba(0,0,0,0.2);
+      	}
+    }
 }

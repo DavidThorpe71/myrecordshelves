@@ -62,14 +62,27 @@ exports.createRecord = async (req, res) => {
 
 exports.getRecords = async (req, res) => {
 	const page = req.params.page || 1;
-	const limit = 8;
+	const limit = 9;
 	const skip = (page * limit) - limit;
 	// query database for list of all records
-	const records = await Record
+	const recordsPromise = Record
 		.find()
 		.skip(skip)
 		.limit(limit)
-	res.render('records', { title: 'Records', records });
+		.sort({ created: 'desc' });
+
+	const countPromise = Record.count();
+
+	const [records, count] = await Promise.all([recordsPromise, countPromise]);
+
+	const pages = Math.ceil(count / limit);
+	if (!records.length && skip) {
+		req.flash('info', `Hey you asked for page ${page}. But that doesn't exist. So I put you on page ${pages}`)
+		res.redirect(`/records/page/${pages}`);
+		return;
+	}
+
+	res.render('records', { title: 'Records', records, page, pages, count });
 };
 
 const confirmOwner = (record, user) => {

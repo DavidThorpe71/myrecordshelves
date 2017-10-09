@@ -1,6 +1,7 @@
 extends layout
 
 include mixins/_recordCard
+include mixins/_pagination
 
 block content
 	.inner
@@ -8,3 +9,4 @@ block content
 		.records
 			each record in records
 				+recordCard(record)
+		+pagination(page, pages, count)

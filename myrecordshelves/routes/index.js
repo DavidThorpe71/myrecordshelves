@@ -31,6 +31,7 @@ router.get('/records/:id/edit', catchErrors(recordController.editRecord));
 router.get('/records/:slug', catchErrors(recordController.getRecordBySlug));
 
 router.get('/shelves', catchErrors(recordController.getRecordsByShelf));
+router.get('/shelves/page/:page', catchErrors(recordController.getRecordsByShelf));
 router.get('/shelves/:shelf', catchErrors(recordController.getRecordsByShelf));
 
 //Admin routes below here
