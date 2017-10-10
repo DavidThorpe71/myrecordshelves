@@ -38,16 +38,19 @@ router.get('/shelves/:shelf', catchErrors(recordController.getRecordsByShelf));
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
 //TODO work out where to position the register page to stop unknown people registering
-router.get('/register', userController.registerForm);
+// Commented out below line to avoid stangers registering to site
+// router.get('/register', userController.registerForm);
 
 // 1. Validate Registration data
 // 2. Register the user
 // 3. We need to log them in
-router.post('/register', 
-	userController.validateRegister,
-	userController.register,
-	authController.login
-);
+
+// Commented out below lines to avoid stangers registering to site
+// router.post('/register', 
+// 	userController.validateRegister,
+// 	userController.register,
+// 	authController.login
+// );
 
 router.get('/logout', authController.logout);
 

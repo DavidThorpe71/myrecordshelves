@@ -1,5 +1,5 @@
 mixin shelves()
 	.cabinet
 		each num in [1,2,3,4,5,6,7,8]
-			a.box.box__link(href=`/shelves/${num}`)
+			a.box.box__link(href=`/shelves/${num}`, class=(currentPath.endsWith(num) ? 'box__link--active' : ''))
 				span.box__text #{num}
