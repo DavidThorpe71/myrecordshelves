@@ -3,6 +3,7 @@ const Record = mongoose.model('Record');
 const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
+const axios = require('axios');
 
 const multerOptions = {
 	storage: multer.memoryStorage(),
@@ -113,6 +114,27 @@ exports.updateRecord = async (req, res) => {
 exports.getRecordBySlug = async (req, res, next) => {
 	const record = await Record.findOne({ slug: req.params.slug });
 	if(!record) return next();
+	/*
+API
+*/
+
+	const url = `https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.API_KEY}&artist=${record.artist}&album=${record.title}&format=json`
+
+	axios
+		.get(url)
+		.then(res => {
+			const album = res.data.album;
+			// if(!album.length) {
+			// 	console.log('no record found');
+			// 	return;
+			// }
+			const tracks = album.tracks.track
+			for(const track of tracks) {
+				console.log(track.name);
+			};
+		})
+		.catch(console.error);
+
 	res.render('record', { record, title: record.title })
 };
 
@@ -144,3 +166,5 @@ exports.searchRecords = async (req, res) => {
 	.limit(5);
 	res.json(records);
 };
+
+

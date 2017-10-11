@@ -1,5 +1,6 @@
 mixin recordCard(record = {})
 	.record
+		pre= h.dump(record)
 		.record__hero
 			.record__actions
 				if user && record.author.equals(user._id)

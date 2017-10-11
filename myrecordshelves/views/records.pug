@@ -8,5 +8,5 @@ block content
 		h2= title
 		.records
 			each record in records
-				+recordCard(record)
+				+recordCard(record, lastFm)
 		+pagination(page, pages, count)
