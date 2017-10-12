@@ -114,7 +114,9 @@ exports.updateRecord = async (req, res) => {
 exports.getRecordBySlug = async (req, res, next) => {
 	const record = await Record.findOne({ slug: req.params.slug });
 	if(!record) return next();
-	/*
+
+
+/*
 API
 */
 
@@ -124,14 +126,7 @@ API
 		.get(url)
 		.then(res => {
 			const album = res.data.album;
-			// if(!album.length) {
-			// 	console.log('no record found');
-			// 	return;
-			// }
-			const tracks = album.tracks.track
-			for(const track of tracks) {
-				console.log(track.name);
-			};
+			console.log(album.tracks.track[0].name)
 		})
 		.catch(console.error);
 

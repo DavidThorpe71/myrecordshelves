@@ -2,25 +2,26 @@
   position: relative;
   width: 100%;
   display: flex;
+  padding: 5px;
+  margin: 12px;
   &__results {
     background: white;
     position: absolute;
     width: 100%;
     top: 100%;
-    box-shadow: 0 0 2px black;
+    box-shadow: 0 0 5px silver;
     z-index: 5;
   }
   &__input {
-    // font-size: 30px;
-    // background: none;
-    // color: white;
-    // outline: 0;
-    // border: 0;
+    color: black;
+    min-width: 145px;
+    &:focus {
+      outline-color: silver;
+    }
   }
   &__result {
-    padding: 10px;
+    padding:5px;
     display: block;
-    border-bottom: 1px solid grey;
     &--active {
       background: $grey;
     }
