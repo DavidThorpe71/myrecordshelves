@@ -28,7 +28,9 @@ router.post('/add/:id',
 
 router.get('/records/:id/edit', catchErrors(recordController.editRecord));
 
-router.get('/records/:slug', catchErrors(recordController.getRecordBySlug));
+router.get('/records/:slug', 
+	catchErrors(recordController.getRecordBySlug)
+);
 
 router.get('/shelves', catchErrors(recordController.getRecordsByShelf));
 router.get('/shelves/page/:page', catchErrors(recordController.getRecordsByShelf));

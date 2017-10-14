@@ -2664,11 +2664,7 @@ var _typeAhead2 = _interopRequireDefault(_typeAhead);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//TODO add cover image from LastFM API
-// covercomplete( $('#artist'), $('#title') );
-
 (0, _typeAhead2.default)((0, _bling.$)('.search'));
-// import covercomplete from './modules/covercomplete';
 
 /***/ })
 /******/ ]);

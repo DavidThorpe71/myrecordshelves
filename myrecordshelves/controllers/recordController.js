@@ -4,6 +4,7 @@ const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
 const axios = require('axios');
+const numeral = require('numeral')
 
 const multerOptions = {
 	storage: multer.memoryStorage(),
@@ -78,7 +79,7 @@ exports.getRecords = async (req, res) => {
 
 	const pages = Math.ceil(count / limit);
 	if (!records.length && skip) {
-		req.flash('info', `Hey you asked for page ${page}. But that doesn't exist. So I put you on page ${pages}`)
+		req.flash('info', `You asked for page ${page}. But that doesn't exist. So I put you on page ${pages}`)
 		res.redirect(`/records/page/${pages}`);
 		return;
 	}
@@ -111,26 +112,17 @@ exports.updateRecord = async (req, res) => {
 	res.redirect(`/records/${record._id}/edit`);
 };
 
+
+
 exports.getRecordBySlug = async (req, res, next) => {
 	const record = await Record.findOne({ slug: req.params.slug });
 	if(!record) return next();
 
-
-/*
-API
-*/
-
 	const url = `https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.API_KEY}&artist=${record.artist}&album=${record.title}&format=json`
-
-	axios
-		.get(url)
-		.then(res => {
-			const album = res.data.album;
-			console.log(album.tracks.track[0].name)
-		})
-		.catch(console.error);
-
-	res.render('record', { record, title: record.title })
+	const response = await axios.get(url)
+	const album = response.data.album;
+	const tracks = album.tracks
+	res.render('record', { record, title: record.title, album, tracks })
 };
 
 exports.getRecordsByShelf = async (req, res) => {

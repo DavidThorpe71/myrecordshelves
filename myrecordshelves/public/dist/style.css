@@ -708,6 +708,9 @@ pre.error {
     width: 100%;
     max-width: 400px; }
 
+.tracks {
+  margin-bottom: 12px; }
+
 .search {
   position: relative;
   width: 100%;
