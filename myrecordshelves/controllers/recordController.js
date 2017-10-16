@@ -119,10 +119,11 @@ exports.getRecordBySlug = async (req, res, next) => {
 	if(!record) return next();
 
 	const url = `https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.API_KEY}&artist=${record.artist}&album=${record.title}&format=json`
-	const response = await axios.get(url)
+	const response = await axios.get(url);
 	const album = response.data.album;
-	const tracks = album.tracks
-	res.render('record', { record, title: record.title, album, tracks })
+	const tracks = album.tracks;
+	//TODO: handle errors so if album comes back as undefined just dosen't render the tracklist rather than throwing an error
+	res.render('record', { record, title: record.title, album, tracks });
 };
 
 exports.getRecordsByShelf = async (req, res) => {
