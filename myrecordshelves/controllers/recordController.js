@@ -21,10 +21,7 @@ const multerOptions = {
 
 exports.homePage = async (req, res) => {
 	// query database for list of all records for search to work
-	// const records = await Record
-	// 	.find()
-	// 	// .skip(skip)
-	// 	// .limit(limit)
+
 	const shelf = req.params.shelf;
 	const shelfQuery = shelf || { $exists: true };
 	const shelvesPromise = Record.getShelfList();
