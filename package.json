@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": "8.4.1"
+    "node": ">= 6.11.4"
   },
   "scripts": {
     "start": "node ./start.js",
