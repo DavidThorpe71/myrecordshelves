@@ -685,7 +685,7 @@ pre.error {
 
 .record__hero {
   position: relative;
-  padding: 0 10px 0 10px; }
+  padding: 5px 10px 0 10px; }
   .record__hero:before {
     display: block;
     content: '';
