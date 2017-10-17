@@ -2,7 +2,7 @@ extends layout
 
 block content
 	.single
-		//- pre=h.dump(album)
+		//- pre=h.dump(album.tracks)
 		.single__hero
 			img.single__image(src=`/uploads/${record.cover || 'record.jpg'}`)
 			p.artist Artist: #{record.artist}
@@ -11,8 +11,11 @@ block content
 				span.shelf__text Shelf: #{record.shelf}
 			p.single__format Format: #{record.format}
 			.tracks
-				each t in tracks.track
-					.track
-						span.number #{t['@attr'].rank}. 
-						span.name #{t.name}  
-						//- span.duration (#{t.duration})
+				if album
+					each t in album.tracks.track
+						.track
+							span.number #{t['@attr'].rank}. 
+							span.name #{t.name}  
+							span.duration (#{t.duration})
+				else
+					.track (tracklist unavailable)

@@ -16,8 +16,8 @@ html
 							a.nav__link.dropbtn(href="/")
 								!= h.icon('shelves')
 								span Shelves
-							.dropdown-content
-								+shelves()
+							//- .dropdown-content
+							//- 	+shelves()
 						each item in h.menu
 							li.nav__item
 								a.nav__link(href=item.slug, class=(currentPath.startsWith(item.slug) ? 'nav__link--active' : ''))
