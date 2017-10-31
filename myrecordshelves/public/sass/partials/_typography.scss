@@ -14,6 +14,14 @@ h1, h2, h3, h4, h5, h6, {
   font-style: italic;
   font-size: 5rem;
   margin: 0 0 25px 0;
+  @media all and (max-width: 410px) {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  @media all and (min-width: 411px) and (max-width: 550px) {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
 }
 
 a {
